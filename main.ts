@@ -1,3 +1,6 @@
+input.onButtonPressed(Button.A, function () {
+    cuteBot.stopcar()
+})
 radio.onReceivedValue(function (name, value) {
     if (name == "X") {
         X = value

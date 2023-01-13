@@ -19,9 +19,6 @@ basic.showLeds(`
     . # . # .
     `)
 basic.forever(function () {
-    rychlost_leve_kolo = Y + X
-    rychlost_prave_kolo = Y - X
-    cuteBot.motors(rychlost_leve_kolo, rychlost_prave_kolo)
     if (rychlost_leve_kolo - rychlost_prave_kolo > 20) {
         for (let index = 0; index < 4; index++) {
             cuteBot.colorLight(cuteBot.RGBLights.RGB_L, 0xff8000)
@@ -38,7 +35,9 @@ basic.forever(function () {
             basic.pause(100)
         }
     }
-    if (true) {
-    	
-    }
+})
+basic.forever(function () {
+    rychlost_leve_kolo = Y + X
+    rychlost_prave_kolo = Y - X
+    cuteBot.motors(rychlost_leve_kolo, rychlost_prave_kolo)
 })

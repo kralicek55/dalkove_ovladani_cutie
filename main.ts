@@ -22,7 +22,7 @@ basic.forever(function () {
     rychlost_leve_kolo = Y + X
     rychlost_prave_kolo = Y - X
     cuteBot.motors(rychlost_leve_kolo, rychlost_prave_kolo)
-    if (rychlost_leve_kolo > rychlost_prave_kolo) {
+    if (rychlost_leve_kolo - rychlost_prave_kolo > 20) {
         for (let index = 0; index < 4; index++) {
             cuteBot.colorLight(cuteBot.RGBLights.RGB_R, 0xff8000)
             basic.pause(250)
@@ -30,12 +30,15 @@ basic.forever(function () {
             basic.pause(100)
         }
     }
-    if (rychlost_prave_kolo > rychlost_leve_kolo) {
+    if (rychlost_prave_kolo - rychlost_leve_kolo > 20) {
         for (let index = 0; index < 4; index++) {
             cuteBot.colorLight(cuteBot.RGBLights.RGB_L, 0xff8000)
             basic.pause(250)
             cuteBot.colorLight(cuteBot.RGBLights.RGB_L, 0x000000)
             basic.pause(100)
         }
+    }
+    if (true) {
+    	
     }
 })

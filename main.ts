@@ -1,6 +1,3 @@
-input.onButtonPressed(Button.A, function () {
-    cuteBot.stopcar()
-})
 radio.onReceivedValue(function (name, value) {
     if (name == "X") {
         X = value
@@ -9,6 +6,11 @@ radio.onReceivedValue(function (name, value) {
         Y = value
     }
 })
+// Zastavit Cutie na tlačítko A.
+// Zastavit když je před překážkou.
+// Rozsvítit když je tma.
+// BONUS: udělat něco 
+// na všechny tlačítka! :)
 let rychlost_prave_kolo = 0
 let rychlost_leve_kolo = 0
 let Y = 0

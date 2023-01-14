@@ -1,3 +1,6 @@
+input.onButtonPressed(Button.A, function () {
+    basic.showNumber(input.lightLevel())
+})
 radio.onReceivedValue(function (name, value) {
     if (name == "X") {
         X = value
@@ -56,7 +59,7 @@ basic.forever(function () {
     }
 })
 basic.forever(function () {
-    if (input.lightLevel() < 10) {
+    if (input.lightLevel() == 0) {
         cuteBot.colorLight(cuteBot.RGBLights.ALL, 0xffffff)
     } else {
         cuteBot.closeheadlights()

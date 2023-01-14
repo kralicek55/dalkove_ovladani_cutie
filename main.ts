@@ -7,6 +7,23 @@ radio.onReceivedValue(function (name, value) {
     }
     if (name == "muzes_jet") {
         muzu_jet = value
+        if (muzu_jet == 1) {
+            basic.showLeds(`
+                . . . . .
+                . . . . #
+                . . . # .
+                # . # . .
+                . # . . .
+                `)
+        } else {
+            basic.showLeds(`
+                # . . . #
+                . # . # .
+                . . # . .
+                . # . # .
+                # . . . #
+                `)
+        }
     }
 })
 // Zastavit Cutie na tlačítko A.
@@ -28,6 +45,17 @@ basic.showLeds(`
     . # . # .
     `)
 muzu_jet = 0
+// Rychlost kol
+// 
+basic.forever(function () {
+    rychlost_leve_kolo = Y + X
+    rychlost_prave_kolo = Y - X
+    if (muzu_jet == 1) {
+        cuteBot.motors(rychlost_leve_kolo, rychlost_prave_kolo)
+    } else {
+        cuteBot.stopcar()
+    }
+})
 // Směrovky
 basic.forever(function () {
     if (rychlost_leve_kolo > 0 && rychlost_prave_kolo > 0) {
@@ -47,16 +75,5 @@ basic.forever(function () {
                 basic.pause(100)
             }
         }
-    }
-})
-// Rychlost kol
-// 
-basic.forever(function () {
-    rychlost_leve_kolo = Y + X
-    rychlost_prave_kolo = Y - X
-    if (muzu_jet == 1) {
-        cuteBot.motors(rychlost_leve_kolo, rychlost_prave_kolo)
-    } else {
-        cuteBot.stopcar()
     }
 })

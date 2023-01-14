@@ -5,7 +5,7 @@ radio.onReceivedValue(function (name, value) {
     if (name == "Y") {
         Y = value
     }
-    if (name == "muzes_jet") {
+    if (name == "MuzesJet") {
         muzu_jet = value
         if (muzu_jet == 1) {
             basic.showLeds(`
@@ -26,7 +26,6 @@ radio.onReceivedValue(function (name, value) {
         }
     }
 })
-// Zastavit Cutie na tlačítko A.
 // Zastavit když je před překážkou.
 // Rozsvítit když je tma.
 // BONUS: udělat něco 

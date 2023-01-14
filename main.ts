@@ -55,6 +55,14 @@ basic.forever(function () {
         cuteBot.stopcar()
     }
 })
+basic.forever(function () {
+    if (input.lightLevel() < 10) {
+        cuteBot.colorLight(cuteBot.RGBLights.ALL, 0xffffff)
+    } else {
+        cuteBot.closeheadlights()
+    }
+    basic.pause(1000)
+})
 // Směrovky
 basic.forever(function () {
     if (rychlost_leve_kolo > 0 && rychlost_prave_kolo > 0) {

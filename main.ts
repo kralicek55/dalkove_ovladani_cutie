@@ -30,7 +30,7 @@ radio.onReceivedValue(function (name, value) {
     }
 })
 // Zastavit když je před překážkou.
-// Rozsvítit když je tma.
+// Výstražné směrovky
 // BONUS: udělat něco 
 // na všechny tlačítka! :)
 let rychlost_prave_kolo = 0
@@ -47,6 +47,10 @@ basic.showLeds(`
     . # . # .
     `)
 muzu_jet = 0
+let led_pasek = neopixel.create(DigitalPin.P15, 2, NeoPixelMode.RGB)
+let leva_led = led_pasek.range(0, 1)
+let prava_led = led_pasek.range(1, 1)
+let obe_led = led_pasek.range(0, 2)
 // Rychlost kol
 // 
 basic.forever(function () {
@@ -71,17 +75,17 @@ basic.forever(function () {
     if (rychlost_leve_kolo > 0 && rychlost_prave_kolo > 0) {
         if (rychlost_leve_kolo - rychlost_prave_kolo > 20) {
             for (let index = 0; index < 4; index++) {
-                cuteBot.colorLight(cuteBot.RGBLights.RGB_L, 0xff8000)
+                prava_led.showColor(neopixel.colors(NeoPixelColors.Orange))
                 basic.pause(250)
-                cuteBot.colorLight(cuteBot.RGBLights.RGB_L, 0x000000)
+                prava_led.showColor(neopixel.colors(NeoPixelColors.Black))
                 basic.pause(100)
             }
         }
         if (rychlost_prave_kolo - rychlost_leve_kolo > 20) {
             for (let index = 0; index < 4; index++) {
-                cuteBot.colorLight(cuteBot.RGBLights.RGB_R, 0xff8000)
+                leva_led.showColor(neopixel.colors(NeoPixelColors.Orange))
                 basic.pause(250)
-                cuteBot.colorLight(cuteBot.RGBLights.RGB_R, 0x000000)
+                leva_led.showColor(neopixel.colors(NeoPixelColors.Black))
                 basic.pause(100)
             }
         }

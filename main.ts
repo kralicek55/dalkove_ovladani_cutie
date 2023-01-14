@@ -33,8 +33,7 @@ radio.onReceivedValue(function (name, value) {
 // MuzesJet pouze na tlacitko A
 // Výstražné směrovky na tlačítko B
 // Zatrub na tlačítko C
-// BONUS: udělat něco 
-// na všechny tlačítka! :)
+// BONUS: udělat něco na všechny tlačítka! :)
 let rychlost_prave_kolo = 0
 let rychlost_leve_kolo = 0
 let Y = 0

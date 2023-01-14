@@ -2,8 +2,7 @@
 MuzesJet pouze na tlacitko A
 Výstražné směrovky na tlačítko B
 Zatrub na tlačítko C
-BONUS: udělat něco 
-na všechny tlačítka! :)</comment><statement name="HANDLER"><block type="radio_set_group" id="Vg1N{*921^JkhKEQ%=@t"><value name="ID"><shadow type="math_number_minmax" id="=Bh]c=x7qmxQ$kxojv:X"><mutation min="0" max="255" label="Id" precision="0"></mutation><field name="SLIDER">90</field></shadow></value><next><block type="device_show_leds" id="x9lJ$)C3{YQc#k/]LC%Q"><field name="LEDS">`
+BONUS: udělat něco na všechny tlačítka! :)</comment><statement name="HANDLER"><block type="radio_set_group" id="Vg1N{*921^JkhKEQ%=@t"><value name="ID"><shadow type="math_number_minmax" id="=Bh]c=x7qmxQ$kxojv:X"><mutation min="0" max="255" label="Id" precision="0"></mutation><field name="SLIDER">90</field></shadow></value><next><block type="device_show_leds" id="x9lJ$)C3{YQc#k/]LC%Q"><field name="LEDS">`
         . . # # . 
         . . # # . 
         # # # # . 

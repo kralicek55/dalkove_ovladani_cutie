@@ -5,6 +5,9 @@ radio.onReceivedValue(function (name, value) {
     if (name == "Y") {
         Y = value
     }
+    if (name == "muzes_jet") {
+        muzu_jet = value
+    }
 })
 // Zastavit Cutie na tlačítko A.
 // Zastavit když je před překážkou.
@@ -15,6 +18,7 @@ let rychlost_prave_kolo = 0
 let rychlost_leve_kolo = 0
 let Y = 0
 let X = 0
+let muzu_jet = 0
 radio.setGroup(90)
 basic.showLeds(`
     . . # # .
@@ -23,6 +27,8 @@ basic.showLeds(`
     # # # # .
     . # . # .
     `)
+muzu_jet = 1
+// Směrovky
 basic.forever(function () {
     if (rychlost_leve_kolo > 0 && rychlost_prave_kolo > 0) {
         if (rychlost_leve_kolo - rychlost_prave_kolo > 20) {
@@ -43,8 +49,14 @@ basic.forever(function () {
         }
     }
 })
+// Rychlost kol
+// 
 basic.forever(function () {
     rychlost_leve_kolo = Y + X
     rychlost_prave_kolo = Y - X
-    cuteBot.motors(rychlost_leve_kolo, rychlost_prave_kolo)
+    if (muzu_jet == 1) {
+        cuteBot.motors(rychlost_leve_kolo, rychlost_prave_kolo)
+    } else {
+        cuteBot.stopcar()
+    }
 })

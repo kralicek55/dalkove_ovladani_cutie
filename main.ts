@@ -27,7 +27,7 @@ basic.showLeds(`
     # # # # .
     . # . # .
     `)
-muzu_jet = 1
+muzu_jet = 0
 // Směrovky
 basic.forever(function () {
     if (rychlost_leve_kolo > 0 && rychlost_prave_kolo > 0) {

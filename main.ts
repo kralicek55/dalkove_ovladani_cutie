@@ -30,7 +30,9 @@ radio.onReceivedValue(function (name, value) {
     }
 })
 // Zastavit když je před překážkou.
-// Výstražné směrovky
+// MuzesJet pouze na tlacitko A
+// Výstražné směrovky na tlačítko B
+// Zatrub na tlačítko C
 // BONUS: udělat něco 
 // na všechny tlačítka! :)
 let rychlost_prave_kolo = 0

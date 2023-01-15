@@ -2,7 +2,7 @@ radio.onReceivedString(function (receivedString) {
     if (receivedString == "ZmenMuzesJet") {
         zmen_muzes_jet()
     }
-    if (receivedString == "ZmenVystrazneSvetla") {
+    if (receivedString == "ZmenVystrazne") {
         zmen_vystrazne_svetla()
     }
 })
@@ -64,6 +64,7 @@ basic.showLeds(`
     . # . # .
     `)
 muzu_jet = 0
+blikej_vystrazne = 0
 let led_pasek = neopixel.create(DigitalPin.P15, 2, NeoPixelMode.RGB)
 let leva_led = led_pasek.range(0, 1)
 let prava_led = led_pasek.range(1, 1)
@@ -87,6 +88,7 @@ basic.forever(function () {
     }
     basic.pause(1000)
 })
+// výstražné světla
 basic.forever(function () {
     if (blikej_vystrazne == 1) {
         obe_led.showColor(neopixel.colors(NeoPixelColors.Orange))

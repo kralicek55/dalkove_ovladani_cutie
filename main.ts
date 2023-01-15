@@ -10,19 +10,19 @@ radio.onReceivedString(function (receivedString) {
         }
         if (muzu_jet == 1) {
             basic.showLeds(`
-                . . . . .
-                . . . . #
+                . . # . .
                 . . . # .
-                # . # . .
-                . # . . .
+                . # # # .
+                . # . # .
+                . # # # .
                 `)
         } else {
             basic.showLeds(`
-                # . . . #
-                . # . # .
                 . . # . .
                 . # . # .
-                # . . . #
+                . # # # .
+                . # . # .
+                . # # # .
                 `)
         }
     }

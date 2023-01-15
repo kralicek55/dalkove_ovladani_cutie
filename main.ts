@@ -1,15 +1,13 @@
 input.onButtonPressed(Button.A, function () {
     basic.showNumber(input.lightLevel())
 })
-radio.onReceivedValue(function (name, value) {
-    if (name == "X") {
-        X = value
-    }
-    if (name == "Y") {
-        Y = value
-    }
-    if (name == "MuzesJet") {
-        muzu_jet = value
+radio.onReceivedString(function (receivedString) {
+    if (receivedString == "ZmenMuzesJet") {
+        if (muzu_jet == 0) {
+            muzu_jet = 1
+        } else {
+            muzu_jet = 0
+        }
         if (muzu_jet == 1) {
             basic.showLeds(`
                 . . . . .
@@ -27,6 +25,14 @@ radio.onReceivedValue(function (name, value) {
                 # . . . #
                 `)
         }
+    }
+})
+radio.onReceivedValue(function (name, value) {
+    if (name == "X") {
+        X = value
+    }
+    if (name == "Y") {
+        Y = value
     }
 })
 // Zastavit když je před překážkou.
@@ -64,7 +70,7 @@ basic.forever(function () {
     }
 })
 basic.forever(function () {
-    if (input.lightLevel() == 0) {
+    if (input.lightLevel() == 10) {
         cuteBot.colorLight(cuteBot.RGBLights.ALL, 0xffffff)
     } else {
         cuteBot.closeheadlights()

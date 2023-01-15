@@ -46,7 +46,6 @@ function zmen_muzes_jet () {
     }
 }
 // Zastavit když je před překážkou.
-// Výstražné směrovky na tlačítko B
 // Zatrub na tlačítko C
 // BONUS: udělat něco na všechny tlačítka! :)
 let rychlost_prave_kolo = 0

@@ -1,32 +1,18 @@
-input.onButtonPressed(Button.A, function () {
-    basic.showNumber(input.lightLevel())
-})
 radio.onReceivedString(function (receivedString) {
     if (receivedString == "ZmenMuzesJet") {
-        if (muzu_jet == 0) {
-            muzu_jet = 1
-        } else {
-            muzu_jet = 0
-        }
-        if (muzu_jet == 1) {
-            basic.showLeds(`
-                . . # . .
-                . . . # .
-                . # # # .
-                . # . # .
-                . # # # .
-                `)
-        } else {
-            basic.showLeds(`
-                . . # . .
-                . # . # .
-                . # # # .
-                . # . # .
-                . # # # .
-                `)
-        }
+        zmen_muzes_jet()
+    }
+    if (receivedString == "ZmenVystrazneSvetla") {
+        zmen_vystrazne_svetla()
     }
 })
+function zmen_vystrazne_svetla () {
+    if (blikej_vystrazne == 0) {
+        blikej_vystrazne = 1
+    } else {
+        blikej_vystrazne = 0
+    }
+}
 radio.onReceivedValue(function (name, value) {
     if (name == "X") {
         X = value
@@ -35,8 +21,31 @@ radio.onReceivedValue(function (name, value) {
         Y = value
     }
 })
+function zmen_muzes_jet () {
+    if (muzu_jet == 0) {
+        muzu_jet = 1
+    } else {
+        muzu_jet = 0
+    }
+    if (muzu_jet == 1) {
+        basic.showLeds(`
+            . . # . .
+            . . . # .
+            . # # # .
+            . # . # .
+            . # # # .
+            `)
+    } else {
+        basic.showLeds(`
+            . . # . .
+            . # . # .
+            . # # # .
+            . # . # .
+            . # # # .
+            `)
+    }
+}
 // Zastavit když je před překážkou.
-// MuzesJet pouze na tlacitko A
 // Výstražné směrovky na tlačítko B
 // Zatrub na tlačítko C
 // BONUS: udělat něco na všechny tlačítka! :)
@@ -44,6 +53,7 @@ let rychlost_prave_kolo = 0
 let rychlost_leve_kolo = 0
 let Y = 0
 let X = 0
+let blikej_vystrazne = 0
 let muzu_jet = 0
 radio.setGroup(90)
 basic.showLeds(`
@@ -76,6 +86,14 @@ basic.forever(function () {
         cuteBot.closeheadlights()
     }
     basic.pause(1000)
+})
+basic.forever(function () {
+    if (blikej_vystrazne == 1) {
+        obe_led.showColor(neopixel.colors(NeoPixelColors.Orange))
+        basic.pause(500)
+        obe_led.showColor(neopixel.colors(NeoPixelColors.Black))
+        basic.pause(200)
+    }
 })
 // Směrovky
 basic.forever(function () {

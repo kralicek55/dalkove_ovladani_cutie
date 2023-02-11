@@ -1,9 +1,20 @@
+function zatrub () {
+    for (let index = 0; index < 2; index++) {
+        music.playMelody("E E - E E E E - ", 450)
+    }
+}
+input.onButtonPressed(Button.A, function () {
+    zatrub()
+})
 radio.onReceivedString(function (receivedString) {
     if (receivedString == "ZmenMuzesJet") {
         zmen_muzes_jet()
     }
     if (receivedString == "ZmenVystrazne") {
         zmen_vystrazne_svetla()
+    }
+    if (receivedString == "Zatrub") {
+        zatrub()
     }
 })
 function zmen_vystrazne_svetla () {
@@ -46,7 +57,6 @@ function zmen_muzes_jet () {
     }
 }
 // Zastavit když je před překážkou.
-// Zatrub na tlačítko C
 // BONUS: udělat něco na všechny tlačítka! :)
 let rychlost_prave_kolo = 0
 let rychlost_leve_kolo = 0

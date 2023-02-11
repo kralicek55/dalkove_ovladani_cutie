@@ -1,11 +1,3 @@
-function zatrub () {
-    for (let index = 0; index < 2; index++) {
-        music.playMelody("E E - E E E E - ", 450)
-    }
-}
-input.onButtonPressed(Button.A, function () {
-    zatrub()
-})
 radio.onReceivedString(function (receivedString) {
     if (receivedString == "ZmenMuzesJet") {
         zmen_muzes_jet()
@@ -14,7 +6,7 @@ radio.onReceivedString(function (receivedString) {
         zmen_vystrazne_svetla()
     }
     if (receivedString == "Zatrub") {
-        zatrub()
+        zacniTroubit()
     }
 })
 function zmen_vystrazne_svetla () {
@@ -23,6 +15,9 @@ function zmen_vystrazne_svetla () {
     } else {
         blikej_vystrazne = 0
     }
+}
+function zacniTroubit () {
+    trub = 1
 }
 radio.onReceivedValue(function (name, value) {
     if (name == "X") {
@@ -56,12 +51,11 @@ function zmen_muzes_jet () {
             `)
     }
 }
-// Zastavit když je před překážkou.
-// BONUS: udělat něco na všechny tlačítka! :)
 let rychlost_prave_kolo = 0
 let rychlost_leve_kolo = 0
 let Y = 0
 let X = 0
+let trub = 0
 let blikej_vystrazne = 0
 let muzu_jet = 0
 radio.setGroup(90)
@@ -74,6 +68,7 @@ basic.showLeds(`
     `)
 muzu_jet = 0
 blikej_vystrazne = 0
+trub = 0
 let led_pasek = neopixel.create(DigitalPin.P15, 2, NeoPixelMode.RGB)
 let leva_led = led_pasek.range(0, 1)
 let prava_led = led_pasek.range(1, 1)
@@ -126,4 +121,12 @@ basic.forever(function () {
             }
         }
     }
+})
+basic.forever(function () {
+    if (trub == 1) {
+        for (let index = 0; index < 2; index++) {
+            music.playMelody("E E - E E E E - ", 450)
+        }
+    }
+    trub = 0
 })
